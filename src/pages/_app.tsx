@@ -1,6 +1,18 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import { AppWrapper } from "@/styles/app-wrapper";
+import GlobalStyle from "@/styles/global-styles";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        <title>Finer Vision</title>
+      </Head>
+      <AppWrapper>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </AppWrapper>
+    </>
+  );
 }
