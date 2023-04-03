@@ -7,6 +7,30 @@ export const NavWrapper = styled.nav`
   z-index: 10;
   height: var(--nav-height);
   width: 100%;
-  background:rgba(233, 255, 237, 0.35);
+  background: rgba(233, 255, 237, 0.5);
   backdrop-filter: blur(5px);
+  padding: 0.5rem 4rem;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+
+  color: var(--color-primary);
+  font-size: 0.9rem;
+`;
+
+export const NavLinks = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  place-self: center;
+
+  & a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+`;
+
+export const NavIcons = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  place-self: end;
 `;

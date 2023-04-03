@@ -1,5 +1,7 @@
 import React from "react";
 import { HeroHeader, HeroContent } from "./hero.styles";
+import { Button } from "../button/button";
+import { ButtonVariantType } from "../button/button";
 
 export const Hero = () => {
   return (
@@ -10,6 +12,7 @@ export const Hero = () => {
           We offer a wide selection of premium quality plants and expert advice
           to help you create your own indoor oasis.
         </p>
+        <Button variant={ButtonVariantType.dark}>Shop Plants</Button>
       </HeroContent>
     </HeroHeader>
   );

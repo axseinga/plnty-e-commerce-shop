@@ -1,0 +1,53 @@
+import styled, { css } from "styled-components";
+import { ButtonVariantType } from "./button";
+
+type ButtonWrapperProps = {
+  variant?: ButtonVariantType;
+};
+
+export const ButtonWrapper = styled.button<ButtonWrapperProps>`
+  background-color: transparent;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  font-family: var(--font-header);
+  cursor: pointer;
+  transition: all 1s;
+
+  &:active,
+  &:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  ${({ variant }) => {
+    switch (variant) {
+      case ButtonVariantType.dark:
+        return css`
+          border: 1px solid var(--color-primary);
+          color: var(--color-primary);
+
+          &:active,
+          &:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-white);
+          }
+        `;
+      case ButtonVariantType.form:
+        return css``;
+      case ButtonVariantType.hero:
+        return css`
+          &:active,
+          &:hover {
+            color: var(--color-white);
+            border-color: var(--color-white);
+            background: rgba(233, 255, 237, 0.2);
+            backdrop-filter: blur(5px);
+          }
+        `;
+    }
+  }}
+`;
