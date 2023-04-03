@@ -9,8 +9,14 @@ const GlobalStyle = createGlobalStyle`
     --root-min: 15px;
     --root-max: 20px;
     --gap: 1rem;
-    --color-background: #000000;
-    /* --font-text: 'Plus Jakarta Sans', sans-serif; */
+    --nav-height: 2.5rem;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-primary: #024B3F;
+    --color-secondary: #8AA77E;
+    --color-tertiary: #3f655f;
+    --font-headers: 'Sora', sans-serif;
+    --font-text: 'Poppins', sans-serif;
   }
 
   * {
@@ -19,11 +25,11 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: clamp(var(--root-min), var(--root-size), var(--root-max));
-    /* font-family: var(--font-text); */
+    font-family: var(--font-text);
     font-weight: normal;
-    color: var(--color-text);
+    color: var(--color-black);
     line-height: 20px;
-    background-color: var(--color-background);
+    background-color: var(--color-white);
     overflow-x: hidden;
     width: 100%;
   }
@@ -34,7 +40,12 @@ const GlobalStyle = createGlobalStyle`
     font-size: inherit;
     width: 100%;
     height: 100%;
-    background-color: var(--color-background);
+    background-color: var(--color-white);
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-headers);
+    font-weight: 600;
   }
 
   #__next, main {

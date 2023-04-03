@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Finer Vision</title>
+        <title>PLNTY</title>
       </Head>
       <AppWrapper>
         <GlobalStyle />
