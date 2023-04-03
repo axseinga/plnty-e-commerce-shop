@@ -28,7 +28,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--font-text);
     font-weight: normal;
     color: var(--color-black);
-    line-height: 20px;
     background-color: var(--color-white);
     overflow-x: hidden;
     width: 100%;
@@ -41,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
     background-color: var(--color-white);
+    line-height: 1.5;
   }
 
   h1, h2, h3, h4, h5 {
