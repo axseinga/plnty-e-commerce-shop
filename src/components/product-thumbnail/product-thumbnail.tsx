@@ -29,7 +29,7 @@ export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
         <ProductThumbnailDetails>
           <ProductThumbnailHeader>
             <div>
-              <h2>{product?.name}</h2>
+              <h3>{product?.name}</h3>
               <p>{product?.review_score}</p>
             </div>
             <p>{product?.title}</p>

@@ -42,7 +42,7 @@ export const ProductThumbnailHeader = styled.div`
     justify-content: space-between;
     padding-right: 0.5rem;
 
-    & h2 {
+    & h3 {
       font-size: 0.9rem;
     }
   }

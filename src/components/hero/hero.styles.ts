@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
-export const HeroHeader = styled.div`
+type HeroHeaderProps = {
+    heroImage: string;
+    isHomepage?: boolean;
+}
+
+export const HeroHeader = styled.div<HeroHeaderProps>`
 width: 100%;
-height: 95vh;
+height: ${({ isHomepage  }) => isHomepage ? "95vh" : "50vh"};
 background-color: var(--color-secondary);
-background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.1), rgba(2, 75, 63, 0.73)), url("/assets/homepage-bg.png");
+background-image: ${({ isHomepage  }) => isHomepage ? "linear-gradient(to bottom, rgba(245, 246, 252, 0.1), rgba(2, 75, 63, 0.73))" : "linear-gradient(to top, rgba(245, 246, 252, 0.1), rgba(0, 137, 66, 0.4))"}, ${({ heroImage  }) => `url(${heroImage})`};
 background-repeat: no-repeat;
 background-size: cover;
 background-position: bottom;
