@@ -10,12 +10,14 @@ const GlobalStyle = createGlobalStyle`
     --root-max: 20px;
     --gap: 1rem;
     --nav-height: 2.5rem;
+    --color-background: #FAFAFA;
     --color-white: #ffffff;
     --color-black: #000000;
     --color-primary: #024B3F;
     --color-secondary: #8AA77E;
     --color-tertiary: #3f655f;
     --color-light-gray: #dcdcdc;
+    --color-cream: #F6E8CC;
     --font-headers: 'Sora', sans-serif;
     --font-text: 'Poppins', sans-serif;
   }
@@ -29,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--font-text);
     font-weight: normal;
     color: var(--color-black);
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     overflow-x: hidden;
     width: 100%;
   }
@@ -40,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: inherit;
     width: 100%;
     height: 100%;
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     line-height: 1.5;
   }
 

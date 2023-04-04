@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const ProductThumbnailWrapper = styled.div`
   width: 100%;
-  border: 1px solid var(--color-light-gray);
+  background-color: var(--color-white);
+  box-shadow: 4px 6px 8px -3px rgba(143,143,143,1);
 
   & a {
     color: var(--color-black);
