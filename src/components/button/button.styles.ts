@@ -13,7 +13,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   font-size: 0.9rem;
   font-family: var(--font-header);
   cursor: pointer;
-  transition: all 1s;
+  transition: color 1s, background-color 1s, border-color 1s;
 
   &:active,
   &:hover {
@@ -40,6 +40,11 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
         return css``;
       case ButtonVariantType.hero:
         return css`
+        padding: 0.8rem 1.1rem;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        transition: all 1s;
           &:active,
           &:hover {
             color: var(--color-white);

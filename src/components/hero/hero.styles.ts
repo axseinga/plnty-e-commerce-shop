@@ -35,4 +35,8 @@ width: 70%;
     line-height: 1.3rem;
     width: 80%;
 }
+
+& button {
+    margin-top: 1rem;
+}
 `;
