@@ -36,15 +36,13 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
             border-color: var(--color-white);
           }
         `;
-      case ButtonVariantType.form:
-        return css``;
       case ButtonVariantType.hero:
         return css`
-        padding: 0.8rem 1.1rem;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1rem;
-        transition: all 1s;
+          padding: 0.8rem 1.1rem;
+          font-size: 1.1rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          transition: all 1s;
           &:active,
           &:hover {
             color: var(--color-white);

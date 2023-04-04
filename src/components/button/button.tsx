@@ -3,7 +3,6 @@ import { ButtonWrapper } from "./button.styles";
 
 export enum ButtonVariantType {
     dark = "dark",
-    form = "form",
     hero = "hero"
   }
 
