@@ -5,11 +5,22 @@ export type ProductListItem = {
   slug: string;
   name: string;
   price: number;
-  description: string;
   images: {
     url: string;
     width: number;
     height: number;
   }[];
+  review_score: number;
+};
+
+export type ProductThumbnailItem = {
+  id: string;
+  title: string;
+  name: string;
+  price: number;
+  thumbnailUrl: string;
+  thumbnailAlt: string;
+  thumbnailWidth: number;
+  thumbnailHeight: number;
   review_score: number;
 };

@@ -26,6 +26,7 @@ export const ProductThumbnailDetails = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0 0.5rem;
 
   & p {
     font-size: 0.6rem;

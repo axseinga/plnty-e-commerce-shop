@@ -7,11 +7,24 @@ type ProductListProps = {
   items: ProductListItem[];
 };
 
-export const ProductList = ({items}: ProductListProps) => {
+export const ProductList = ({ items }: ProductListProps) => {
   return (
     <ProductListWrapper>
       {items.map((product) => (
-        <ProductThumbnail key={product?.slug} product={product} />
+        <ProductThumbnail
+          key={product?.slug}
+          product={{
+            id: product.slug,
+            title: product.title,
+            name: product.name,
+            price: product.price,
+            thumbnailUrl: product.images[0].url,
+            thumbnailAlt: product.title,
+            thumbnailWidth: product.images[0].width,
+            thumbnailHeight: product.images[0].height,
+            review_score: product.review_score,
+          }}
+        />
       ))}
     </ProductListWrapper>
   );

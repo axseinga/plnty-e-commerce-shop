@@ -6,25 +6,25 @@ import {
   ProductThumbnailHeader,
   ProductThumbnailForm,
 } from "./product-thumbnail.styles";
-import { ProductListItem } from "@/types";
+import { ProductThumbnailItem } from "@/types";
 import { Button } from "@/components/button/button";
 import { ButtonVariantType } from "@/components/button/button";
 import { formatCurrency } from "@/utils";
 import Link from "next/link";
 
 type ProductThumbnailProps = {
-  product: ProductListItem;
+  product: ProductThumbnailItem;
 };
 
 export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
   return (
     <ProductThumbnailWrapper>
-      <Link href="">
+      <Link href={`/plants/${product?.id}`}>
         <Image
-          src={product?.images?.[0]?.url}
+          src={product?.thumbnailUrl}
           alt={product?.title}
-          width={product?.images?.[0]?.width}
-          height={product?.images?.[0]?.height}
+          width={product?.thumbnailWidth}
+          height={product?.thumbnailHeight}
         />
         <ProductThumbnailDetails>
           <ProductThumbnailHeader>
