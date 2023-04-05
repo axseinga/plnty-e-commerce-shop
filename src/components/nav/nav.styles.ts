@@ -38,6 +38,7 @@ export const NavIcons = styled.div`
   display: flex;
   gap: 0.5rem;
   place-self: end;
+  align-items: center;
 
   & a {
     color: var(--color-primary);
