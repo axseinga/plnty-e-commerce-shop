@@ -26,6 +26,11 @@ export const NavLinks = styled.div`
   & a {
     color: var(--color-primary);
     text-decoration: none;
+    transition: color 0.2s;
+
+    &:active, &:hover {
+      color: var(--color-cream);
+    }
   }
 `;
 
@@ -33,4 +38,13 @@ export const NavIcons = styled.div`
   display: flex;
   gap: 0.5rem;
   place-self: end;
+
+  & a {
+    color: var(--color-primary);
+    transition: all 0.2s;
+
+    &:active, &:hover {
+      color: var(--color-cream);
+    }
+  }
 `;

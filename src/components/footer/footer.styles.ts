@@ -19,7 +19,9 @@ export const FooterContent = styled.div`
   }
 `;
 
-export const FooterSocials = styled.div``;
+export const FooterSocials = styled.div`
+display: flex;
+align-items: center;`;
 
 export const FooterLinks = styled.div`
   width: 100%;

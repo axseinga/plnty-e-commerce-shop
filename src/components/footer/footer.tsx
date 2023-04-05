@@ -5,6 +5,9 @@ import {
   FooterSocials,
   FooterLinks,
 } from "./footer.styles";
+import { LinkedinIcon } from "@/components/icons/linkedin-icon";
+import { FacebookIcon } from "../icons/facebook-icon";
+import { InstagramIcon } from "../icons/instagram-icon";
 
 export const Footer = () => {
   return (
@@ -18,7 +21,7 @@ export const Footer = () => {
           anytime - we&apos;re dedicated to helping you bring more green into
           your life!
         </p>
-        <FooterSocials>F T I</FooterSocials>
+        <FooterSocials><FacebookIcon fill="var(--color-cream)"/><InstagramIcon fill="var(--color-cream)"/> <LinkedinIcon fill="var(--color-cream)"/></FooterSocials>
       </FooterContent>
       <FooterLinks>
         <div>
