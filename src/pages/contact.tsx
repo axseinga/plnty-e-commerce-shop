@@ -1,10 +1,11 @@
-import { PageLayout } from "@/components/page-layout/page-layout";
 import { Hero } from "@/components/hero/hero";
 
-export default function PlantsPage() {
+const ContactPage = () => {
   return (
-    <PageLayout>
+    <>
       <Hero heroImage="/assets/contactpage-header.png" />
-    </PageLayout>
+    </>
   );
 }
+
+export default ContactPage;

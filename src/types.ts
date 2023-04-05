@@ -7,8 +7,9 @@ export type ProductListItem = {
   price: number;
   description: string;
   images: {
-    src: string;
-    alt: string;
+    url: string;
+    width: number;
+    height: number;
   }[];
   review_score: number;
 };

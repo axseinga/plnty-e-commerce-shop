@@ -21,10 +21,10 @@ export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
     <ProductThumbnailWrapper>
       <Link href="">
         <Image
-          src={product?.images?.[0]?.src}
-          alt={product?.images?.[0]?.alt}
-          width="640"
-          height="800"
+          src={product?.images?.[0]?.url}
+          alt={product?.title}
+          width={product?.images?.[0]?.width}
+          height={product?.images?.[0]?.height}
         />
         <ProductThumbnailDetails>
           <ProductThumbnailHeader>
