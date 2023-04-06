@@ -101,9 +101,11 @@ export const ProductDropdownContent = styled.div<ProductDropdownContent>`
   flex-direction: column;
   gap: 1rem;
 
-  & p:first-child {
-  }
   & p {
     padding-left: 0.2rem;
+  }
+
+  & p:last-child {
+    padding-bottom: 1rem;
   }
 `;
