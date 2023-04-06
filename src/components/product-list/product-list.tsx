@@ -1,10 +1,10 @@
 import React from "react";
 import { ProductListWrapper } from "./product-list.styles";
 import { ProductThumbnail } from "../product-thumbnail/product-thumbnail";
-import { ProductListItem } from "@/types";
+import { ProductListItemT } from "@/types";
 
 type ProductListProps = {
-  items: ProductListItem[];
+  items: ProductListItemT[];
 };
 
 export const ProductList = ({ items }: ProductListProps) => {

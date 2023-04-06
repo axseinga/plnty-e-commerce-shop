@@ -36,6 +36,20 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
             border-color: var(--color-white);
           }
         `;
+      case ButtonVariantType.gray:
+        return css`
+          border: 1px solid var(--color-gray);
+          color: var(--color-gray);
+          font-size: 0.6rem;
+          padding: 0.3rem 0.5rem;
+
+          &:active,
+          &:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-white);
+          }
+        `;
       case ButtonVariantType.hero:
         return css`
           padding: 0.8rem 1.1rem;

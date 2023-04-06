@@ -2,9 +2,10 @@ import React from "react";
 import { ButtonWrapper } from "./button.styles";
 
 export enum ButtonVariantType {
-    dark = "dark",
-    hero = "hero"
-  }
+  dark = "dark",
+  gray = "gray",
+  hero = "hero",
+}
 
 type ButtonProps = {
   children?: React.ReactNode;
@@ -14,5 +15,9 @@ type ButtonProps = {
 };
 
 export const Button = ({ children, onClick, variant }: ButtonProps) => {
-  return <ButtonWrapper onClick={onClick} variant={variant}>{children}</ButtonWrapper>;
+  return (
+    <ButtonWrapper onClick={onClick} variant={variant}>
+      {children}
+    </ButtonWrapper>
+  );
 };

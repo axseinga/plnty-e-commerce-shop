@@ -1,14 +1,16 @@
 import { gql } from "@apollo/client";
 import { apolloClient } from "@/services/graphql/apolloClient";
 import { InferGetStaticPropsType } from "next";
+import { Hero } from "@/components/hero/hero";
+import { Product } from "@/components/product/product";
 
 const ProductPage = ({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(data);
   return (
     <>
-      <div>product</div>
+      <Hero heroImage="/assets/plantspage-header.png" />
+      <Product data={data} />
     </>
   );
 };
@@ -76,9 +78,13 @@ export const getStaticProps = async ({ params }: any) => {
           }
           description
           longDescription
+          categories {
+            title
+          }
         }
-      }
+      },
     `,
+    fetchPolicy: "no-cache"
   });
 
   if (!data.product || !data.product.longDescription) {

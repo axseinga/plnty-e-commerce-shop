@@ -6,14 +6,14 @@ import {
   ProductThumbnailHeader,
   ProductThumbnailForm,
 } from "./product-thumbnail.styles";
-import { ProductThumbnailItem } from "@/types";
+import { ProductThumbnailItemT } from "@/types";
 import { Button } from "@/components/button/button";
 import { ButtonVariantType } from "@/components/button/button";
 import { formatCurrency } from "@/utils";
 import Link from "next/link";
 
 type ProductThumbnailProps = {
-  product: ProductThumbnailItem;
+  product: ProductThumbnailItemT;
 };
 
 export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
