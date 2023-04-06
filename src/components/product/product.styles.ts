@@ -100,9 +100,45 @@ export const ProductDropdownContent = styled.div<ProductDropdownContent>`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
 
+export const ProductDropdownCares = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+`;
+
+export const ProductDropdownCare = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+
+  & img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  & div {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    & p:first-child {
+      font-size: 1rem;
+    }
+
+    & p:last-child {
+      font-size: 0.7rem;
+    }
+  }
+`;
+
+export const ProductDropdownDescription = styled.div`
   & p {
-    padding-left: 0.2rem;
+    padding: 0.5rem 0.2rem;
+    text-align: justify;
   }
 
   & p:last-child {

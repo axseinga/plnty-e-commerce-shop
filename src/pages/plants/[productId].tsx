@@ -81,10 +81,19 @@ export const getStaticProps = async ({ params }: any) => {
           categories {
             title
           }
+          cares {
+            title
+            description
+            icon {
+              url
+              width
+              height
+            }
+          }
         }
-      },
+      }
     `,
-    fetchPolicy: "no-cache"
+    fetchPolicy: "no-cache",
   });
 
   if (!data.product || !data.product.longDescription) {

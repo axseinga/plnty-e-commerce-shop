@@ -36,6 +36,23 @@ export type ImageItemT = {
   height: number;
 };
 
+export type CaresIconT = {
+  url: string;
+  width: number;
+  height: number;
+}
+
+export type CaresT = {
+  title: string;
+  description: string;
+  icon: CaresIconT;
+};
+
+export enum ProductDropdownVariantT {
+  cares = "cares",
+  about = "about",
+}
+
 export type ProductT = {
   id: string;
   title: string;
@@ -46,4 +63,5 @@ export type ProductT = {
   description: string;
   longDescription: string;
   categories: CategoryT[];
+  cares: CaresT[];
 };

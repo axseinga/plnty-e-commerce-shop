@@ -9,13 +9,17 @@ import {
   ProductDropdownWrapper,
   ProductDropdownHeader,
   ProductDropdownContent,
+  ProductDropdownCares,
+  ProductDropdownCare,
+  ProductDropdownDescription,
   ProductReviews,
 } from "./product.styles";
 import { ProductGallery } from "@/components/product-gallery/product-gallery";
-import { ProductT } from "@/types";
+import { ProductT, CaresT, ProductDropdownVariantT } from "@/types";
 import { formatCurrency } from "@/utils";
 import { Button, ButtonVariantType } from "@/components/button/button";
 import { ArrowIcon } from "@/components/icons/arrow-icon";
+import Image from "next/image";
 
 type ProductProps = {
   data: ProductT;
@@ -24,7 +28,7 @@ type ProductProps = {
 export const Product = ({ data }: ProductProps) => {
   return (
     <ProductWrapper>
-      <ProductGallery items={data.images}/>
+      <ProductGallery items={data.images} />
       <ProductDetails>
         <h2>{data.name}</h2>
         <ProductPrice>£{formatCurrency(data.price)}</ProductPrice>
@@ -46,11 +50,13 @@ export const Product = ({ data }: ProductProps) => {
         </Button>
         <ProductDropdown
           name={data.name}
-          longDescription={data.longDescription}
+          type={ProductDropdownVariantT.cares}
+          cares={data.cares}
         />
         <ProductDropdown
-          name={data.name}
+          title={data.title}
           longDescription={data.longDescription}
+          type={ProductDropdownVariantT.about}
         />
       </ProductDetails>
       <ProductReviews>reviews with form</ProductReviews>
@@ -59,11 +65,20 @@ export const Product = ({ data }: ProductProps) => {
 };
 
 type ProductDropdownProps = {
-  name: string;
-  longDescription: string;
+  name?: string;
+  title?: string;
+  longDescription?: string;
+  cares?: CaresT[];
+  type: ProductDropdownVariantT;
 };
 
-const ProductDropdown = ({ name, longDescription }: ProductDropdownProps) => {
+const ProductDropdown = ({
+  name,
+  title,
+  longDescription,
+  cares = [],
+  type,
+}: ProductDropdownProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
   const [height, setHeight] = React.useState(0);
@@ -86,15 +101,39 @@ const ProductDropdown = ({ name, longDescription }: ProductDropdownProps) => {
         isOpen={isOpen}
         aria-label="Open accordion"
       >
-        <span>{name} likes...</span> <ArrowIcon />
+        {type === ProductDropdownVariantT.cares ? (
+          <span>{name} likes...</span>
+        ) : (
+          <span>Read about {title?.toLowerCase()}</span>
+        )}{" "}
+        <ArrowIcon />
       </ProductDropdownHeader>
       <ProductDropdownContent
         isOpen={isOpen}
         aria-expanded={isOpen}
         ref={dropdownRef}
-        dangerouslySetInnerHTML={{ __html: longDescription }}
       >
-
+        {type === ProductDropdownVariantT.cares ? (
+          <ProductDropdownCares>
+            {cares &&
+              cares.map((care, i) => (
+                <ProductDropdownCare key={`care_${i}`}>
+                  <Image
+                    src={care.icon.url}
+                    alt=""
+                    width={care.icon.width}
+                    height={care.icon.height}
+                  />
+                  <div>
+                    <p>{care.title}</p>
+                    <p>{care.description}</p>
+                  </div>
+                </ProductDropdownCare>
+              ))}
+          </ProductDropdownCares>
+        ) : (
+          <ProductDropdownDescription dangerouslySetInnerHTML={{ __html: longDescription ?? "" }} />
+        )}
       </ProductDropdownContent>
     </ProductDropdownWrapper>
   );
