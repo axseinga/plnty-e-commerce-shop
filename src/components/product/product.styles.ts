@@ -3,18 +3,14 @@ import styled from "styled-components";
 export const ProductWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1600px;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 55% 45%;
   grid-template-areas:
     "carousel details"
     "reviews details";
-`;
-
-export const ProductImageCarousel = styled.div`
-  grid-area: carousel;
-  height: 500px;
-  border: 2px solid green;
+  justify-items: center;
+  gap: 1rem;
 `;
 
 export const ProductDetails = styled.article`
@@ -54,14 +50,13 @@ export const ProductDescription = styled.p`
 
 export const ProductReviews = styled.div`
   grid-area: reviews;
-  height: 500px;
-  border: 2px solid blue;
 `;
 
 // dropdown
 
 export const ProductDropdownWrapper = styled.div`
   width: 100%;
+  border-bottom: 1px solid var(--color-gray);
 `;
 
 type ProductDropdownHeader = {
@@ -74,9 +69,10 @@ export const ProductDropdownHeader = styled.button<ProductDropdownHeader>`
   border: none;
   font-family: var(--font-header);
   text-align: left;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  border-bottom: 1px solid var(--color-gray);
+  padding-left: 0.2rem;
+  letter-spacing: 0.05rem;
 
   display: flex;
   align-items: center;
@@ -101,8 +97,13 @@ export const ProductDropdownContent = styled.div<ProductDropdownContent>`
   height: var(--height);
   overflow: hidden;
   transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
+  & p:first-child {
+  }
   & p {
-    padding: 0.2rem;
+    padding-left: 0.2rem;
   }
 `;

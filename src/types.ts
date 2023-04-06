@@ -28,18 +28,20 @@ export type ProductThumbnailItemT = {
 export type CategoryT = {
   __typename: string;
   title: string;
-}
+};
+
+export type ImageItemT = {
+  url: string;
+  width: number;
+  height: number;
+};
 
 export type ProductT = {
   id: string;
   title: string;
   name: string;
   price: number;
-  images: {
-    url: string;
-    width: number;
-    height: number;
-  }[];
+  images: ImageItemT[];
   review_score: number;
   description: string;
   longDescription: string;

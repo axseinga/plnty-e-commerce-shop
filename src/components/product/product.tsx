@@ -1,7 +1,6 @@
 import React from "react";
 import {
   ProductWrapper,
-  ProductImageCarousel,
   ProductDetails,
   ProductPrice,
   ProductTitle,
@@ -12,6 +11,7 @@ import {
   ProductDropdownContent,
   ProductReviews,
 } from "./product.styles";
+import { ProductGallery } from "@/components/product-gallery/product-gallery";
 import { ProductT } from "@/types";
 import { formatCurrency } from "@/utils";
 import { Button, ButtonVariantType } from "@/components/button/button";
@@ -24,7 +24,7 @@ type ProductProps = {
 export const Product = ({ data }: ProductProps) => {
   return (
     <ProductWrapper>
-      <ProductImageCarousel>carousel</ProductImageCarousel>
+      <ProductGallery items={data.images}/>
       <ProductDetails>
         <h2>{data.name}</h2>
         <ProductPrice>£{formatCurrency(data.price)}</ProductPrice>
@@ -92,8 +92,9 @@ const ProductDropdown = ({ name, longDescription }: ProductDropdownProps) => {
         isOpen={isOpen}
         aria-expanded={isOpen}
         ref={dropdownRef}
+        dangerouslySetInnerHTML={{ __html: longDescription }}
       >
-        <p dangerouslySetInnerHTML={{__html: longDescription}}/>
+
       </ProductDropdownContent>
     </ProductDropdownWrapper>
   );
