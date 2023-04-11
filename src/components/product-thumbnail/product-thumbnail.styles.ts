@@ -2,8 +2,12 @@ import styled from "styled-components";
 
 export const ProductThumbnailWrapper = styled.div`
   width: 100%;
+  min-height: 22rem;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 87% 13%;
   background-color: var(--color-white);
-  box-shadow: 4px 6px 8px -3px rgba(143,143,143,1);
+  box-shadow: 4px 6px 8px -3px rgba(143, 143, 143, 1);
 
   & a {
     color: var(--color-black);
@@ -11,7 +15,7 @@ export const ProductThumbnailWrapper = styled.div`
     transition: color 0.2s;
 
     &:hover {
-        color: var(--color-primary);
+      color: var(--color-primary);
     }
   }
 
@@ -25,7 +29,7 @@ export const ProductThumbnailWrapper = styled.div`
 export const ProductThumbnailDetails = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
   padding: 0 0.5rem;
 
   & p {
@@ -51,8 +55,8 @@ export const ProductThumbnailHeader = styled.div`
 `;
 
 export const ProductThumbnailForm = styled.form`
-  margin-top: 0.5rem;
   display: flex;
+  padding-top: 0.3rem;
 
   & input {
     width: 2.5rem;
