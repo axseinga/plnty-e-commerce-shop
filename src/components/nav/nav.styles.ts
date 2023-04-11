@@ -42,6 +42,7 @@ export const NavIcons = styled.div`
 
   & a {
     color: var(--color-primary);
+    text-decoration: none;
     transition: all 0.2s;
 
     &:active, &:hover {

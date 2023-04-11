@@ -11,12 +11,22 @@ import { Button } from "@/components/button/button";
 import { ButtonVariantType } from "@/components/button/button";
 import { formatCurrency } from "@/utils";
 import Link from "next/link";
+import { FavIcon } from "@/components/icons/fav-icon";
+import { useInputState } from "@/hooks/useInputState";
+import useCartStateStore from "@/store/cart-store";
 
 type ProductThumbnailProps = {
   product: ProductThumbnailItemT;
 };
 
 export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
+  const { addItemToCart } = useCartStateStore();
+  const [quantity, handleQuantity] = useInputState("1");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <ProductThumbnailWrapper>
       <Link href={`/plants/${product?.id}`}>
@@ -26,6 +36,7 @@ export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
           width={product?.thumbnailWidth}
           height={product?.thumbnailHeight}
         />
+        <FavIcon />
         <ProductThumbnailDetails>
           <ProductThumbnailHeader>
             <div>
@@ -37,7 +48,7 @@ export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
           <p>£{formatCurrency(product?.price)}</p>
         </ProductThumbnailDetails>
       </Link>
-      <ProductThumbnailForm>
+      <ProductThumbnailForm onSubmit={handleSubmit}>
         <label htmlFor="qty" aria-label="Quantity" />
         <input
           type="number"
@@ -46,8 +57,21 @@ export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
           placeholder="1"
           min="1"
           max="99"
+          value={quantity}
+          onChange={handleQuantity}
         />
-        <Button type="submit" variant={ButtonVariantType.dark}>
+        <Button
+          type="submit"
+          variant={ButtonVariantType.dark}
+          onClick={() =>
+            addItemToCart({
+              id: product.id,
+              title: product.title,
+              price: product.price,
+              count: +quantity,
+            })
+          }
+        >
           Add to bag
         </Button>
       </ProductThumbnailForm>

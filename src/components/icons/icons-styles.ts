@@ -6,6 +6,7 @@ type IconWrapperProps = {
 
 export const IconWrapper = styled.button<IconWrapperProps>`
   transition: color 0.2s;
+  color: ${({ color }) => color ?? "var(--color-primary)"};
   background-color: transparent;
   border: none;
   cursor: pointer;

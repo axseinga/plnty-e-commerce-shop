@@ -14,7 +14,7 @@ export const ProductList = ({ items }: ProductListProps) => {
         <ProductThumbnail
           key={product?.slug}
           product={{
-            id: product.slug,
+            id: product.id,
             title: product.title,
             name: product.name,
             price: product.price,

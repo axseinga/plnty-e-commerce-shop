@@ -34,6 +34,7 @@ export const getStaticProps = async () => {
     query: gql`
       query GetAllProducts {
         products(first: 100) {
+          id
           slug
           title
           name

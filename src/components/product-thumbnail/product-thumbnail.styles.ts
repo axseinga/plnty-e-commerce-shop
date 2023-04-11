@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ProductThumbnailWrapper = styled.div`
   width: 100%;
-  min-height: 22rem;
   height: 100%;
   display: grid;
   grid-template-rows: 87% 13%;
@@ -13,9 +12,16 @@ export const ProductThumbnailWrapper = styled.div`
     color: var(--color-black);
     text-decoration: none;
     transition: color 0.2s;
+    position: relative;
 
     &:hover {
       color: var(--color-primary);
+    }
+
+    & button {
+      position: absolute;
+      right: 0;
+      top: 5px;
     }
   }
 
@@ -56,7 +62,7 @@ export const ProductThumbnailHeader = styled.div`
 
 export const ProductThumbnailForm = styled.form`
   display: flex;
-  padding-top: 0.3rem;
+  margin-top: 1rem;
 
   & input {
     width: 2.5rem;
