@@ -3,7 +3,7 @@ import useCartStateStore from "@/store/cart-store";
 import { CartOperationT } from "@/store/cart-store";
 
 const CartPage = () => {
-  const { cart, updateItemCount } = useCartStateStore();
+  const { cart, updateItemCount, removeItemFromCart } = useCartStateStore();
   return (
     <>
       <Hero heroImage="/assets/contactpage-header.png" />
@@ -23,7 +23,7 @@ const CartPage = () => {
           >
             plus
           </button>{" "}
-          <button type="button">remove</button>
+          <button type="button" onClick={() => removeItemFromCart(product.id)}>remove</button>
         </li>
       ))}
     </>

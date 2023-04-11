@@ -16,7 +16,7 @@ type CartStateStoreT = {
   cart: CartItemT[];
   addItemToCart: (item: CartItemT) => void;
   updateItemCount: (item: CartItemT, operation: CartOperationT) => void;
-  removeItemFromCart: (item: CartItemT) => void;
+  removeItemFromCart: (id: CartItemT["id"]) => void;
 };
 
 const useCartStateStore = create<CartStateStoreT>((set) => {
@@ -69,17 +69,19 @@ const useCartStateStore = create<CartStateStoreT>((set) => {
         };
       });
     },
-    removeItemFromCart(item) {
+    removeItemFromCart(id) {
       set((state) => {
         const existingItem = state.cart.find(
-          (existingItem) => existingItem.id === item.id
+          (existingItem) => existingItem.id === id
         );
-        if (!existingItem) {
+        if (existingItem) {
           return {
-            cart: [...state.cart, item],
+            cart: state.cart.filter((existingItem) => existingItem.id !== id),
           };
-        }
-        return {};
+        } else
+          return {
+            cart: state.cart,
+          };
       });
     },
   };
