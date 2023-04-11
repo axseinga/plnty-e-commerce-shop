@@ -29,7 +29,7 @@ export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
 
   return (
     <ProductThumbnailWrapper>
-      <Link href={`/plants/${product?.id}`}>
+      <Link href={`/plants/${product?.slug}`}>
         <Image
           src={product?.thumbnailUrl}
           alt={product?.title}

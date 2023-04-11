@@ -51,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5 {
     font-family: var(--font-headers);
     font-weight: 600;
+    letter-spacing: 0.07rem;
   }
 
   #__next, main {

@@ -15,6 +15,7 @@ export const ProductList = ({ items }: ProductListProps) => {
           key={product?.slug}
           product={{
             id: product.id,
+            slug: product.slug,
             title: product.title,
             name: product.name,
             price: product.price,

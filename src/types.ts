@@ -16,6 +16,7 @@ export type ProductListItemT = {
 
 export type ProductThumbnailItemT = {
   id: string;
+  slug: string;
   title: string;
   name: string;
   price: number;
@@ -41,7 +42,7 @@ export type CaresIconT = {
   url: string;
   width: number;
   height: number;
-}
+};
 
 export type CaresT = {
   title: string;
