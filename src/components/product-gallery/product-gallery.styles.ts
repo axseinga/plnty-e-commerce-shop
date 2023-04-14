@@ -68,6 +68,7 @@ export const ProductGallerySliderInner = styled.div<ProductGallerySliderInner>`
 export const ProductGalleryImageWrapper = styled.div`
   overflow: hidden;
   cursor: pointer;
+  font-size: 0;
 
   &:hover img {
     transform: scale(1.1);
@@ -86,6 +87,8 @@ export const ProductGalleryActiveImage = styled.div`
   grid-template-rows: 95% 5%;
   width: 100%;
   overflow: hidden;
+  font-size: 0;
+
   & img {
     width: 100%;
     height: auto;

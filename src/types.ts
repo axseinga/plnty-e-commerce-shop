@@ -67,3 +67,13 @@ export type ProductT = {
   categories: CategoryT[];
   cares: CaresT[];
 };
+
+// Blog
+
+export type BlogTileItem = {
+  image: string;
+  alt: string;
+  title: string;
+  shortDescription: string;
+  slug: string;
+};
