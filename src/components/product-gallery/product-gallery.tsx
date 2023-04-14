@@ -24,7 +24,7 @@ export const ProductGallery = ({ items }: ProductGalleryProps) => {
   const handleScroll = (offset: number) => {
     if (sliderRef.current === null) return;
     sliderRef.current.scrollBy(0, offset);
-  }
+  };
 
   return (
     <ProductGalleryWrapper>
@@ -45,8 +45,8 @@ export const ProductGallery = ({ items }: ProductGalleryProps) => {
               <Image
                 src={image.url}
                 alt=""
-                width={image.width}
-                height={image.height}
+                width={image.width ?? "640"}
+                height={image.height ?? "800"}
               />
             </ProductGalleryImageWrapper>
           ))}
@@ -63,8 +63,8 @@ export const ProductGallery = ({ items }: ProductGalleryProps) => {
         <Image
           src={items?.[activeIndex]?.url}
           alt=""
-          width={items?.[activeIndex]?.width}
-          height={items?.[activeIndex]?.height}
+          width={items?.[activeIndex]?.width ?? "640"}
+          height={items?.[activeIndex]?.height ?? "800"}
         />
       </ProductGalleryActiveImage>
       <GalleryNavigation>

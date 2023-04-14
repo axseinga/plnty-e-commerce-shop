@@ -11,7 +11,7 @@ export type ProductListItemT = {
     width: number;
     height: number;
   }[];
-  review_score: number;
+  reviewScore: number;
 };
 
 export type ProductThumbnailItemT = {
@@ -24,28 +24,31 @@ export type ProductThumbnailItemT = {
   thumbnailAlt: string;
   thumbnailWidth: number;
   thumbnailHeight: number;
-  review_score: number;
+  reviewScore: number;
 };
 
 export type CategoryT = {
-  __typename: string;
+  __typename?: "Category";
   title: string;
 };
 
 export type ImageItemT = {
+  __typename?: "Asset" | undefined;
   url: string;
-  width: number;
-  height: number;
+  height: number | null;
+  width: number | null;
 };
 
 export type CaresIconT = {
+  __typename?: "Asset";
   url: string;
-  width: number;
-  height: number;
+  width: number | null;
+  height: number | null;
 };
 
 export type CaresT = {
-  title: string;
+  __typename?: "Care";
+  title: string | null;
   description: string;
   icon: CaresIconT;
 };
@@ -56,14 +59,16 @@ export enum ProductDropdownVariantT {
 }
 
 export type ProductT = {
+  __typename?: "Product" | undefined;
   id: string;
+  slug: string;
   title: string;
   name: string;
   price: number;
-  images: ImageItemT[];
-  review_score: number;
+  reviewScore: number;
   description: string;
   longDescription: string;
+  images: ImageItemT[];
   categories: CategoryT[];
   cares: CaresT[];
 };

@@ -41,7 +41,7 @@ export const ProductThumbnail = ({ product }: ProductThumbnailProps) => {
           <ProductThumbnailHeader>
             <div>
               <h3>{product?.name}</h3>
-              <p>{product?.review_score}</p>
+              <p>{product?.reviewScore}</p>
             </div>
             <p>{product?.title}</p>
           </ProductThumbnailHeader>

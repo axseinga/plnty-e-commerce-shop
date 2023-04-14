@@ -34,7 +34,7 @@ export const Product = ({ data }: ProductProps) => {
         <ProductPrice>£{formatCurrency(data.price)}</ProductPrice>
         <ProductTitle>{data.title}</ProductTitle>
         <ProductCategories>
-          {data.categories.map((category) => (
+          {data.categories && data.categories.map((category) => (
             <Button
               key={category.title}
               type="button"
@@ -121,8 +121,8 @@ const ProductDropdown = ({
                   <Image
                     src={care.icon.url}
                     alt=""
-                    width={care.icon.width}
-                    height={care.icon.height}
+                    width={care.icon.width ?? "384"}
+                    height={care.icon.height ?? "384"}
                   />
                   <div>
                     <p>{care.title}</p>

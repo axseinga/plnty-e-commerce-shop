@@ -1,8 +1,13 @@
-import { gql } from "@apollo/client";
 import { apolloClient } from "@/services/graphql/apolloClient";
-import { InferGetStaticPropsType } from "next";
+import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { Hero } from "@/components/hero/hero";
 import { Product } from "@/components/product/product";
+import {
+  GetProductDetailsBySlugDocument,
+  GetProductDetailsBySlugQuery,
+  GetProductsSlugsDocument,
+  GetProductsSlugsQuery,
+} from "../../../generated/graphql";
 
 const ProductPage = ({
   data,
@@ -10,7 +15,7 @@ const ProductPage = ({
   return (
     <>
       <Hero heroImage="/assets/plantspage-header.png" />
-      <Product data={data} />
+      {data && <Product data={data} />}
     </>
   );
 };
@@ -24,14 +29,8 @@ export type InferGetStaticPathsType<T> = T extends () => Promise<{
   : never;
 
 export const getStaticPaths = async () => {
-  const { data } = await apolloClient.query<any>({
-    query: gql`
-      query GetProductsSlugs {
-        products(first: 100) {
-          slug
-        }
-      }
-    `,
+  const { data } = await apolloClient.query<GetProductsSlugsQuery>({
+    query: GetProductsSlugsDocument,
   });
 
   interface Product {
@@ -50,7 +49,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }: any) => {
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   if (!params?.productId) {
     return {
       props: {},
@@ -58,45 +57,15 @@ export const getStaticProps = async ({ params }: any) => {
     };
   }
 
-  const { data } = await apolloClient.query<any>({
+  const { data } = await apolloClient.query<GetProductDetailsBySlugQuery>({
     variables: {
       slug: params.productId,
     },
-    query: gql`
-      query GetProductDetailsBySlug($slug: String) {
-        product(where: { slug: $slug }) {
-          id
-          slug
-          title
-          name
-          price
-          reviewScore
-          images {
-            url
-            height
-            width
-          }
-          description
-          longDescription
-          categories {
-            title
-          }
-          cares {
-            title
-            description
-            icon {
-              url
-              width
-              height
-            }
-          }
-        }
-      }
-    `,
+    query: GetProductDetailsBySlugDocument,
     fetchPolicy: "no-cache",
   });
 
-  if (!data.product || !data.product.longDescription) {
+  if (!data.product) {
     return {
       props: {},
       notFound: true,

@@ -1,0 +1,29 @@
+query GetProductDetailsBySlug($slug: String) {
+  product(where: { slug: $slug }) {
+    id
+    slug
+    title
+    name
+    price
+    reviewScore
+    images {
+      url
+      height
+      width
+    }
+    description
+    longDescription
+    categories {
+      title
+    }
+    cares {
+      title
+      description
+      icon {
+        url
+        width
+        height
+      }
+    }
+  }
+}

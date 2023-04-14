@@ -23,7 +23,7 @@ export const ProductList = ({ items }: ProductListProps) => {
             thumbnailAlt: product.title,
             thumbnailWidth: product.images[0].width,
             thumbnailHeight: product.images[0].height,
-            review_score: product.review_score,
+            reviewScore: product.reviewScore,
           }}
         />
       ))}
