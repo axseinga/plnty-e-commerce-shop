@@ -1,17 +1,14 @@
 // Product
 
 export type ProductListItemT = {
-  id: string;
-  title: string;
-  slug: string;
-  name: string;
-  price: number;
-  images: {
-    url: string;
-    width: number;
-    height: number;
-  }[];
-  reviewScore: number;
+  __typename?: 'Product', 
+  id: string, 
+  slug: string, 
+  title: string, 
+  name: string, 
+  price: number, 
+  reviewScore: number, 
+  images: ImageItemT[]
 };
 
 export type ProductThumbnailItemT = {

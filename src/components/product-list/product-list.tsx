@@ -21,8 +21,8 @@ export const ProductList = ({ items }: ProductListProps) => {
             price: product.price,
             thumbnailUrl: product.images[0].url,
             thumbnailAlt: product.title,
-            thumbnailWidth: product.images[0].width,
-            thumbnailHeight: product.images[0].height,
+            thumbnailWidth: product.images[0].width ?? 640,
+            thumbnailHeight: product.images[0].height ?? 800,
             reviewScore: product.reviewScore,
           }}
         />
