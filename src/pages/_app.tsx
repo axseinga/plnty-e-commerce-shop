@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <ApolloProvider client={apolloClient}>
         <Head>
-          <title>PLNTY</title>
+          <title>PLNTY - Discover Your Perfect Plant Companion</title>
         </Head>
         <AppWrapper>
           <GlobalStyle />

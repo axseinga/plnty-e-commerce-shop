@@ -80,5 +80,10 @@ export const ProductThumbnailForm = styled.form`
   & button {
     width: 100%;
     padding: 0.4rem 1.5rem;
+
+    &:active,
+    &:hover {
+      border: 1px solid var(--color-primary);
+    }
   }
 `;

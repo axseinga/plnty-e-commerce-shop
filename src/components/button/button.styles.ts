@@ -19,7 +19,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   &:hover {
     background-color: var(--color-white);
     color: var(--color-primary);
-    border-color: var(--color-primary);
+    border-color: var(--color-white);
   }
 
   ${({ variant }) => {
