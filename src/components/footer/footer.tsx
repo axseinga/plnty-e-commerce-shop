@@ -16,11 +16,11 @@ export const Footer = () => {
       <FooterContent>
         <p>
           At PLNTY, we&apos;re committed to providing you with the best possible
-          shopping experience. We&aposre always open to feedback and suggestions
-          to improve our service. If you have any questions or need assistance,
-          our friendly team is here to help. Feel free to reach out to us
-          anytime - we&apos;re dedicated to helping you bring more green into
-          your life!
+          shopping experience. We&apos;re always open to feedback and
+          suggestions to improve our service. If you have any questions or need
+          assistance, our friendly team is here to help. Feel free to reach out
+          to us anytime - we&apos;re dedicated to helping you bring more green
+          into your life!
         </p>
         <NewsletterForm />
         <FooterSocials>

@@ -49,3 +49,17 @@ export const NewsletterFormWrapper = styled.form`
     }
   }
 `;
+
+export const NewsletterModal = styled.div`
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & button {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.7rem;
+  }
+`;
