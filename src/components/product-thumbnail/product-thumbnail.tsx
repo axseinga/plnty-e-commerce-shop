@@ -9,7 +9,7 @@ import {
 import { ProductThumbnailItemT } from "@/types";
 import { Button } from "@/components/button/button";
 import { ButtonVariantType } from "@/components/button/button";
-import { formatCurrency } from "@/utils";
+import { formatCurrency } from "@/utils/utils";
 import Link from "next/link";
 import { FavIcon } from "@/components/icons/fav-icon";
 import { useInputState } from "@/hooks/useInputState";

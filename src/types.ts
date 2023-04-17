@@ -79,3 +79,9 @@ export type BlogTileItem = {
   shortDescription: string;
   slug: string;
 };
+
+// Forms
+
+export type FormTypes = {
+  email: string;
+}

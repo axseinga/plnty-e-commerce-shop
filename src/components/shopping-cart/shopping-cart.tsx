@@ -12,11 +12,11 @@ import {
   ShoppingCartDelivery,
   ShoppingCartTotal,
 } from "./shopping-cart.styles";
-import { Checkbox } from "@/components/form/checkbox/checkbox";
+import { Checkbox } from "@/components/form/elements/checkbox/checkbox";
 import { Spacer, Divider } from "@/styles/elements";
 import { Button, ButtonVariantType } from "@/components/button/button";
 import Link from "next/link";
-import { formatCurrency } from "@/utils";
+import { formatCurrency } from "@/utils/utils";
 import { BinIcon } from "@/components/icons/bin-icon";
 
 // @todo connect delivery options with cart, add delivery in total, add ordernotes to cart

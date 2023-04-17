@@ -6,8 +6,10 @@ import GlobalStyle from "@/styles/global-styles";
 import { ApolloProvider } from "@apollo/client";
 import { apolloClient } from "@/services/graphql/apolloClient";
 import { PageLayout } from "@/components/page-layout/page-layout";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
   return (
     <>
       <ApolloProvider client={apolloClient}>
@@ -16,9 +18,11 @@ export default function App({ Component, pageProps }: AppProps) {
         </Head>
         <AppWrapper>
           <GlobalStyle />
-          <PageLayout>
-            <Component {...pageProps} />
-          </PageLayout>
+          <QueryClientProvider client={queryClient}>
+            <PageLayout>
+              <Component {...pageProps} />
+            </PageLayout>
+          </QueryClientProvider>
         </AppWrapper>
       </ApolloProvider>
     </>

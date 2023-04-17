@@ -16,7 +16,7 @@ import {
 } from "./product.styles";
 import { ProductGallery } from "@/components/product-gallery/product-gallery";
 import { ProductT, CaresT, ProductDropdownVariantT } from "@/types";
-import { formatCurrency } from "@/utils";
+import { formatCurrency } from "@/utils/utils";
 import { Button, ButtonVariantType } from "@/components/button/button";
 import { ArrowIcon } from "@/components/icons/arrow-icon";
 import Image from "next/image";
@@ -34,15 +34,16 @@ export const Product = ({ data }: ProductProps) => {
         <ProductPrice>£{formatCurrency(data.price)}</ProductPrice>
         <ProductTitle>{data.title}</ProductTitle>
         <ProductCategories>
-          {data.categories && data.categories.map((category) => (
-            <Button
-              key={category.title}
-              type="button"
-              variant={ButtonVariantType.gray}
-            >
-              {category.title}
-            </Button>
-          ))}
+          {data.categories &&
+            data.categories.map((category) => (
+              <Button
+                key={category.title}
+                type="button"
+                variant={ButtonVariantType.gray}
+              >
+                {category.title}
+              </Button>
+            ))}
         </ProductCategories>
         <ProductDescription>{data.description}</ProductDescription>
         <Button type="button" variant={ButtonVariantType.dark}>
@@ -132,7 +133,9 @@ const ProductDropdown = ({
               ))}
           </ProductDropdownCares>
         ) : (
-          <ProductDropdownDescription dangerouslySetInnerHTML={{ __html: longDescription ?? "" }} />
+          <ProductDropdownDescription
+            dangerouslySetInnerHTML={{ __html: longDescription ?? "" }}
+          />
         )}
       </ProductDropdownContent>
     </ProductDropdownWrapper>
