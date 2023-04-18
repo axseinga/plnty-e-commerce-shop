@@ -1,21 +1,43 @@
-import {
-  PlantsPageTitle,
-  PlantsPageMain,
-  PlantsPageSearch,
-} from "@/styles/pages/plants.styles";
+import React from "react";
+import { PlantsPageTitle, PlantsPageMain } from "@/styles/pages/plants.styles";
+import { ProductFiltering } from "@/components/product-filtering/product-filtering";
 import { ProductList } from "@/components/product-list/product-list";
 import { Hero } from "@/components/hero/hero";
 import { Spacer } from "@/styles/elements";
 import { InferGetStaticPropsType } from "next";
 import { apolloClient } from "@/services/graphql/apolloClient";
+import { useQuery } from "@apollo/client";
 import {
   GetAllProductsListDocument,
   GetAllProductsListQuery,
+  GetFilteredProductsListDocument,
 } from "../../../generated/graphql";
+import useAppStateStore from "@/store/app-store";
 
 const PlantsPage = ({
-  data,
+  products,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { filters } = useAppStateStore();
+  const [productsList, setProductsList] =
+    React.useState<GetAllProductsListQuery>();
+  const { loading, data } = useQuery(GetFilteredProductsListDocument, {
+    variables: {
+      filters,
+    },
+  });
+
+  React.useEffect(() => {
+    if (products) setProductsList(products);
+  }, [products]);
+
+  React.useEffect(() => {
+    if (filters.length !== 0 && !loading) {
+      setProductsList(data);
+    } else {
+      setProductsList(products);
+    }
+  }, [filters, products, loading, data]);
+
   return (
     <>
       <Hero heroImage="/assets/plantspage-header.png" />
@@ -23,8 +45,8 @@ const PlantsPage = ({
       <PlantsPageTitle>Shop our Indoor Plants</PlantsPageTitle>
       <Spacer times={2} />
       <PlantsPageMain>
-        <PlantsPageSearch></PlantsPageSearch>
-        {data && <ProductList items={data.products} />}
+        <ProductFiltering />
+        {productsList && <ProductList items={productsList.products} />}
       </PlantsPageMain>
     </>
   );
@@ -46,7 +68,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      data,
+      products: data,
     },
   };
 };

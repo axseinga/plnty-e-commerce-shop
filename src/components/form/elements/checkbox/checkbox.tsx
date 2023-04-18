@@ -4,12 +4,18 @@ import { CheckboxWrapper } from "./checkbox.styles";
 type CheckboxProps = {
   label: string;
   name: string;
-  value: number;
+  value: number | string;
+  isChecked: boolean;
+  handleChange: any;
 };
 
-export const Checkbox = ({ label, name, value }: CheckboxProps) => {
-  const [isChecked, setIsChecked] = React.useState(false);
-
+export const Checkbox = ({
+  label,
+  name,
+  value,
+  isChecked,
+  handleChange,
+}: CheckboxProps) => {
   return (
     <CheckboxWrapper isCheckedStyle={isChecked}>
       <label>
@@ -18,7 +24,7 @@ export const Checkbox = ({ label, name, value }: CheckboxProps) => {
           name={name}
           value={value}
           checked={isChecked}
-          onChange={() => setIsChecked((prevState) => !prevState)}
+          onChange={handleChange}
         />
         <span>{label}</span>
       </label>

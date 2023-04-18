@@ -1,5 +1,5 @@
 import React from "react";
-import useCartStateStore, { CartOperationT } from "../../store/cart-store";
+import useCartStateStore, { CartOperationT } from "@/store/cart-store";
 import {
   ShoppingCartWrapper,
   ShoppingCartList,
@@ -92,7 +92,7 @@ const ShoppingCart = () => {
       </ShoppingCartOrderNotes>
       <Spacer times={1} />
       <Divider />
-      <ShoppingCartDelivery>
+      {/* <ShoppingCartDelivery>
         <fieldset>
           <legend>Choose your delivery:</legend>
           <Checkbox
@@ -116,7 +116,7 @@ const ShoppingCart = () => {
             value={399}
           />
         </fieldset>
-      </ShoppingCartDelivery>
+      </ShoppingCartDelivery> */}
       <ShoppingCartTotal>
         <p>
           Total: <span>(Including VAT)</span>
