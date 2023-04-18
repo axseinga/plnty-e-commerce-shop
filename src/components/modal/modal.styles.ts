@@ -44,6 +44,8 @@ export const ModalCloseButton = styled.button`
 
 export const ModalBody = styled.div`
   background-color: var(--color-white);
+  border: 3px double var(--color-primary);
+  padding: 1rem;
   position: relative;
 `;
 

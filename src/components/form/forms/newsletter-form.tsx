@@ -18,7 +18,7 @@ export const NewsletterForm = () => {
     reset,
   } = useForm<FormTypes>({ resolver: yupResolver(newsletterFormSchema) });
   const { mutate, error } = useAddToNewsletterMutation();
-  const [showModal, setShowModal] = React.useState(true);
+  const [showModal, setShowModal] = React.useState(false);
 
   const onSubmit = async (formData: FormTypes) => {
     mutate(formData.email);
@@ -46,7 +46,7 @@ export const NewsletterForm = () => {
             We&apos;re thrilled to have you join our community of fellow plant
             enthusiasts.
           </p>
-          <Link href="/plants"><Button variant={ButtonVariantType.dark}>Continue shopping</Button></Link>
+          <Link href="/plants" onClick={() => setShowModal(false)}><Button variant={ButtonVariantType.dark}>Continue shopping</Button></Link>
         </NewsletterModal>
       </Modal>
     </NewsletterFormWrapper>
