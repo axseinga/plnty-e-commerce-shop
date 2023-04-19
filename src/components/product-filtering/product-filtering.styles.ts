@@ -4,6 +4,8 @@ export const ProductFilteringWrapper = styled.div`
   background-color: var(--color-white);
   box-shadow: 4px 6px 8px -3px rgba(143, 143, 143, 1);
   border: 1px solid var(--color-care-icons);
+  height: 100%;
+  height: min-content;
 `;
 
 export const ProductFilterHeading = styled.div`
@@ -16,6 +18,7 @@ export const ProductFilterHeading = styled.div`
   & h2 {
     font-weight: 500;
     font-size: 0.9rem;
+    padding-left: 0.3rem;
   }
 
   & button {
@@ -49,4 +52,8 @@ export const ProductFilterCategories = styled.div`
       justify-content: space-between;
     }
   }
+`;
+
+export const ProductFiltersCheckboxesGroup = styled.div`
+  margin: 0.3rem 0;
 `;

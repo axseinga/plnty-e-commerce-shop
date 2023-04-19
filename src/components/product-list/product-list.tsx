@@ -2,14 +2,23 @@ import React from "react";
 import { ProductListWrapper } from "./product-list.styles";
 import { ProductThumbnail } from "../product-thumbnail/product-thumbnail";
 import { ProductListItemT } from "@/types";
+import useAppStateStore from "@/store/app-store";
 
 type ProductListProps = {
   items: ProductListItemT[];
 };
 
 export const ProductList = ({ items }: ProductListProps) => {
+  const { filters } = useAppStateStore();
+  const [productListKey, setProductListKey] = React.useState(0.75931);
+
+  React.useEffect(() => {
+    let randomKey = Math.random();
+    setProductListKey(randomKey);
+  }, [filters]);
+
   return (
-    <ProductListWrapper>
+    <ProductListWrapper key={productListKey}>
       {items.map((product) => (
         <ProductThumbnail
           key={product?.slug}

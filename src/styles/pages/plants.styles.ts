@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PlantsPageTitle = styled.h2`
+export const PlantsPageTitle = styled.h1`
 text-align: center;
 font-size: 2rem;
 letter-spacing: 0.05rem;`;
