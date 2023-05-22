@@ -7,19 +7,12 @@ import { Spacer } from "@/styles/elements";
 import { InferGetStaticPropsType } from "next";
 import { apolloClient } from "@/services/graphql/apolloClient";
 import { useQuery } from "@apollo/client";
-import {
-  GetAllProductsListDocument,
-  GetAllProductsListQuery,
-  GetFilteredProductsListDocument,
-} from "../../../generated/graphql";
+import { GetAllProductsListDocument, GetAllProductsListQuery, GetFilteredProductsListDocument } from "../../../generated/graphql";
 import useAppStateStore from "@/store/app-store";
 
-const PlantsPage = ({
-  products,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const PlantsPage = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { filters } = useAppStateStore();
-  const [productsList, setProductsList] =
-    React.useState<GetAllProductsListQuery>();
+  const [productsList, setProductsList] = React.useState<GetAllProductsListQuery>();
   const { loading, data } = useQuery(GetFilteredProductsListDocument, {
     variables: {
       filters,
@@ -57,6 +50,7 @@ export default PlantsPage;
 export const getStaticProps = async () => {
   const { data } = await apolloClient.query<GetAllProductsListQuery>({
     query: GetAllProductsListDocument,
+    fetchPolicy: "no-cache",
   });
 
   if (!data || !data.products) {

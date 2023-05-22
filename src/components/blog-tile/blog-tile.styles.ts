@@ -13,7 +13,7 @@ export const BlogTileWrapper = styled.article`
     &:active,
     &:hover img {
       transform: scale(1.1);
-      filter: brightness(0.5);
+      filter: brightness(0.5) blur(3px);;
     }
 
     &:active,

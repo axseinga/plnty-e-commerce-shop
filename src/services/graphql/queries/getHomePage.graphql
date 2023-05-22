@@ -1,0 +1,15 @@
+query GetHomePage($carouselNewfilters: [String]) {
+  carouselNew: products(where: {categories_some: {slug_in: $carouselNewfilters}}, first: 10) {
+    id
+    slug
+    title
+    name
+    price
+    reviewScore
+    images(first: 1) {
+      url
+      width
+      height
+    }
+  }
+}

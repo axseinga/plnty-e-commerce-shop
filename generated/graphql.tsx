@@ -3921,6 +3921,13 @@ export type GetFilteredProductsListQueryVariables = Exact<{
 
 export type GetFilteredProductsListQuery = { __typename?: 'Query', products: Array<{ __typename?: 'Product', id: string, slug: string, title: string, name: string, price: number, reviewScore: number, images: Array<{ __typename?: 'Asset', url: string, width: number | null, height: number | null }> }> };
 
+export type GetHomePageQueryVariables = Exact<{
+  carouselNewfilters: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
+}>;
+
+
+export type GetHomePageQuery = { __typename?: 'Query', carouselNew: Array<{ __typename?: 'Product', id: string, slug: string, title: string, name: string, price: number, reviewScore: number, images: Array<{ __typename?: 'Asset', url: string, width: number | null, height: number | null }> }> };
+
 export type GetProductDetailsBySlugQueryVariables = Exact<{
   slug: InputMaybe<Scalars['String']>;
 }>;
@@ -4023,6 +4030,54 @@ export function useGetFilteredProductsListLazyQuery(baseOptions?: Apollo.LazyQue
 export type GetFilteredProductsListQueryHookResult = ReturnType<typeof useGetFilteredProductsListQuery>;
 export type GetFilteredProductsListLazyQueryHookResult = ReturnType<typeof useGetFilteredProductsListLazyQuery>;
 export type GetFilteredProductsListQueryResult = Apollo.QueryResult<GetFilteredProductsListQuery, GetFilteredProductsListQueryVariables>;
+export const GetHomePageDocument = gql`
+    query GetHomePage($carouselNewfilters: [String]) {
+  carouselNew: products(
+    where: {categories_some: {slug_in: $carouselNewfilters}}
+    first: 100
+  ) {
+    id
+    slug
+    title
+    name
+    price
+    reviewScore
+    images(first: 1) {
+      url
+      width
+      height
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetHomePageQuery__
+ *
+ * To run a query within a React component, call `useGetHomePageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetHomePageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetHomePageQuery({
+ *   variables: {
+ *      carouselNewfilters: // value for 'carouselNewfilters'
+ *   },
+ * });
+ */
+export function useGetHomePageQuery(baseOptions?: Apollo.QueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetHomePageQuery, GetHomePageQueryVariables>(GetHomePageDocument, options);
+      }
+export function useGetHomePageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetHomePageQuery, GetHomePageQueryVariables>(GetHomePageDocument, options);
+        }
+export type GetHomePageQueryHookResult = ReturnType<typeof useGetHomePageQuery>;
+export type GetHomePageLazyQueryHookResult = ReturnType<typeof useGetHomePageLazyQuery>;
+export type GetHomePageQueryResult = Apollo.QueryResult<GetHomePageQuery, GetHomePageQueryVariables>;
 export const GetProductDetailsBySlugDocument = gql`
     query GetProductDetailsBySlug($slug: String) {
   product(where: {slug: $slug}) {
