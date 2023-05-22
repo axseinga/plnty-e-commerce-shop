@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { HeroHeader, HeroContent } from "./hero.styles";
 import { Button, ButtonVariantType } from "@/components/button/button";
+import Link from "next/link";
 
 type HeroProps = {
   heroImage: string;
@@ -20,7 +21,7 @@ export const Hero = ({ heroImage }: HeroProps) => {
             We offer a wide selection of premium quality plants and expert
             advice to help you create your own indoor oasis.
           </p>
-          <Button variant={ButtonVariantType.hero}>Shop Plants</Button>
+          <Link href="/plants"><Button variant={ButtonVariantType.hero}>Shop Plants</Button></Link>
         </HeroContent>
       )}
     </HeroHeader>
