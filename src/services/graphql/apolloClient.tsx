@@ -9,3 +9,13 @@ import {
     uri: API_URL,
     cache: new InMemoryCache(),
   });
+
+  const GRAPHCMS_TOKEN = process.env.GRAPHCMS_TOKEN ?? "";
+
+  export const authorizedApolloClient = new ApolloClient({
+    uri: API_URL,
+    cache: new InMemoryCache(),
+    headers: {
+      Authorization: `Bearer ${GRAPHCMS_TOKEN}`
+    }
+  });

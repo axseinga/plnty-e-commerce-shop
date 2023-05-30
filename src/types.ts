@@ -84,4 +84,12 @@ export type BlogTileItem = {
 
 export type FormTypes = {
   email: string;
+  password: string;
+}
+
+// Session
+
+export enum SessionEnum {
+  authenticated = "authenticated",
+  unauthenticated = "unauthenticated"
 }

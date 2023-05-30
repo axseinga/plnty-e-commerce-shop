@@ -12,7 +12,7 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
     <>
       <Nav />
       <main>{children}</main>
-      <Banner/>
+      <Banner />
       <Footer />
     </>
   );

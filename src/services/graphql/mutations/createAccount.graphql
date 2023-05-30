@@ -1,0 +1,5 @@
+mutation CreateAccount($email:String!, $password:String!) {
+  createPerson(data: {email: $email, password: $password}) {
+    id
+  }
+}

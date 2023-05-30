@@ -6,6 +6,8 @@ import { FavIcon } from "@/components/icons/fav-icon";
 import { UserIcon } from "@/components/icons/user-icon";
 import { SearchIcon } from "@/components/icons/search-icon";
 import dynamic from "next/dynamic";
+import { useSession } from "next-auth/react";
+import { SessionEnum } from "@/types";
 
 const DynamicCartLink = dynamic(
   () => import("./cart-link"),
@@ -15,6 +17,7 @@ const DynamicCartLink = dynamic(
 );
 
 export const Nav = () => {
+  const session = useSession();
   return (
     <NavWrapper>
       <p>LOGO</p>
@@ -27,7 +30,7 @@ export const Nav = () => {
         <Link href="/favourites">
           <FavIcon />
         </Link>
-        <Link href="/account">
+        <Link href={session.status === SessionEnum.authenticated ? "/profile" : "/sign"}>
           <UserIcon />
         </Link>
         <SearchIcon />
