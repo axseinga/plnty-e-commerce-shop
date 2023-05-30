@@ -1,5 +1,8 @@
+import { authorizedApolloClient } from "@/services/graphql/apolloClient";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { GetAccountByEmailDocument, GetAccountByEmailQuery, GetAccountByEmailQueryVariables } from "../../../../generated/graphql";
+import * as bcrypt from "bcrypt";
 
 export const authOptions = {
   providers: [
@@ -10,15 +13,22 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        // const hash = bcrypt(credentials?.password);
-        
-        const user = { id: "1", name: "J Smith", email: "jsmith@example.com" };
+        if (!credentials) return null;
 
-        if (user) {
-          return user;
-        } else {
-          return null;
-        }
+        const userByEmail = await authorizedApolloClient.query<GetAccountByEmailQuery, GetAccountByEmailQueryVariables>({
+          query: GetAccountByEmailDocument,
+          variables: {
+            email: credentials.username,
+          },
+        });
+
+        if (!userByEmail.data.person?.password) return null;
+
+        const arePasswordEqual = bcrypt.compare(credentials.password, userByEmail.data.person.password);
+
+        if (!arePasswordEqual) return null;
+
+        return { id: userByEmail.data.person.id, email: userByEmail.data.person.email }
       },
     }),
   ],

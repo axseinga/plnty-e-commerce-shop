@@ -1,0 +1,7 @@
+query getAccountByEmail($email: String!) {
+  person(where: { email: $email }) {
+    id
+    email
+    password
+  }
+}
