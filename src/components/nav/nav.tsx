@@ -30,7 +30,7 @@ export const Nav = () => {
         <Link href="/favourites">
           <FavIcon />
         </Link>
-        <Link href={session.status === SessionEnum.authenticated ? "/profile" : "/sign"}>
+        <Link href={session.status === SessionEnum.authenticated ? "/account" : "/sign"}>
           <UserIcon />
         </Link>
         <SearchIcon />
