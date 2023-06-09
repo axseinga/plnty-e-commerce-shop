@@ -36,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--color-background);
     overflow-x: hidden;
     width: 100%;
+    overscroll-behavior: none;
   }
 
   body {
