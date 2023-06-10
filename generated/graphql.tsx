@@ -1527,7 +1527,11 @@ export type PersonConnectInput = {
 export type PersonCreateInput = {
   createdAt: InputMaybe<Scalars['DateTime']>;
   email: Scalars['String'];
+  name: InputMaybe<Scalars['String']>;
   password: Scalars['String'];
+  products: InputMaybe<ProductCreateManyInlineInput>;
+  reviews: InputMaybe<ReviewCreateManyInlineInput>;
+  surname: InputMaybe<Scalars['String']>;
   updatedAt: InputMaybe<Scalars['DateTime']>;
 };
 
@@ -1612,6 +1616,25 @@ export type PersonManyWhereInput = {
   id_not_starts_with: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with: InputMaybe<Scalars['ID']>;
+  name: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  name_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  name_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  name_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  name_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  name_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  name_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  name_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  name_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  name_starts_with: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   password_contains: InputMaybe<Scalars['String']>;
@@ -1631,6 +1654,9 @@ export type PersonManyWhereInput = {
   password_not_starts_with: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   password_starts_with: InputMaybe<Scalars['String']>;
+  products_every: InputMaybe<ProductWhereInput>;
+  products_none: InputMaybe<ProductWhereInput>;
+  products_some: InputMaybe<ProductWhereInput>;
   publishedAt: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt: InputMaybe<Scalars['DateTime']>;
@@ -1647,9 +1673,31 @@ export type PersonManyWhereInput = {
   /** All values that are not contained in given list. */
   publishedAt_not_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   publishedBy: InputMaybe<UserWhereInput>;
+  reviews_every: InputMaybe<ReviewWhereInput>;
+  reviews_none: InputMaybe<ReviewWhereInput>;
+  reviews_some: InputMaybe<ReviewWhereInput>;
   scheduledIn_every: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some: InputMaybe<ScheduledOperationWhereInput>;
+  surname: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  surname_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  surname_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  surname_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  surname_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  surname_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  surname_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  surname_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  surname_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  surname_starts_with: InputMaybe<Scalars['String']>;
   updatedAt: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   updatedAt_gt: InputMaybe<Scalars['DateTime']>;
@@ -1675,17 +1723,25 @@ export enum PersonOrderByInput {
   EmailDesc = 'email_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
   PasswordAsc = 'password_ASC',
   PasswordDesc = 'password_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
+  SurnameAsc = 'surname_ASC',
+  SurnameDesc = 'surname_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC'
 }
 
 export type PersonUpdateInput = {
   email: InputMaybe<Scalars['String']>;
+  name: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
+  products: InputMaybe<ProductUpdateManyInlineInput>;
+  reviews: InputMaybe<ReviewUpdateManyInlineInput>;
+  surname: InputMaybe<Scalars['String']>;
 };
 
 export type PersonUpdateManyInlineInput = {
@@ -1706,7 +1762,9 @@ export type PersonUpdateManyInlineInput = {
 };
 
 export type PersonUpdateManyInput = {
+  name: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
+  surname: InputMaybe<Scalars['String']>;
 };
 
 export type PersonUpdateManyWithNestedWhereInput = {
@@ -1825,6 +1883,25 @@ export type PersonWhereInput = {
   id_not_starts_with: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with: InputMaybe<Scalars['ID']>;
+  name: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  name_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  name_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  name_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  name_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  name_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  name_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  name_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  name_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  name_starts_with: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   password_contains: InputMaybe<Scalars['String']>;
@@ -1844,6 +1921,9 @@ export type PersonWhereInput = {
   password_not_starts_with: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   password_starts_with: InputMaybe<Scalars['String']>;
+  products_every: InputMaybe<ProductWhereInput>;
+  products_none: InputMaybe<ProductWhereInput>;
+  products_some: InputMaybe<ProductWhereInput>;
   publishedAt: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt: InputMaybe<Scalars['DateTime']>;
@@ -1860,9 +1940,31 @@ export type PersonWhereInput = {
   /** All values that are not contained in given list. */
   publishedAt_not_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   publishedBy: InputMaybe<UserWhereInput>;
+  reviews_every: InputMaybe<ReviewWhereInput>;
+  reviews_none: InputMaybe<ReviewWhereInput>;
+  reviews_some: InputMaybe<ReviewWhereInput>;
   scheduledIn_every: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some: InputMaybe<ScheduledOperationWhereInput>;
+  surname: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  surname_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  surname_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  surname_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  surname_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  surname_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  surname_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  surname_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  surname_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  surname_starts_with: InputMaybe<Scalars['String']>;
   updatedAt: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   updatedAt_gt: InputMaybe<Scalars['DateTime']>;
@@ -1911,6 +2013,7 @@ export type ProductConnectInput = {
 export type ProductCreateInput = {
   cares: InputMaybe<CareCreateManyInlineInput>;
   categories: InputMaybe<CategoryCreateManyInlineInput>;
+  clioofguk0e6o01ul07m8gcu4: InputMaybe<PersonCreateManyInlineInput>;
   createdAt: InputMaybe<Scalars['DateTime']>;
   description: Scalars['String'];
   images: AssetCreateManyInlineInput;
@@ -2206,6 +2309,7 @@ export enum ProductOrderByInput {
 export type ProductUpdateInput = {
   cares: InputMaybe<CareUpdateManyInlineInput>;
   categories: InputMaybe<CategoryUpdateManyInlineInput>;
+  clioofguk0e6o01ul07m8gcu4: InputMaybe<PersonUpdateManyInlineInput>;
   description: InputMaybe<Scalars['String']>;
   images: InputMaybe<AssetUpdateManyInlineInput>;
   longDescription: InputMaybe<Scalars['String']>;
@@ -2576,6 +2680,7 @@ export type ReviewConnectInput = {
 export type ReviewCreateInput = {
   author: InputMaybe<Scalars['String']>;
   clanyiohv48rw01tc3dn6dpdc: InputMaybe<ProductCreateManyInlineInput>;
+  clioofwpr0fqo01upabvg9oab: InputMaybe<PersonCreateManyInlineInput>;
   createdAt: InputMaybe<Scalars['DateTime']>;
   email: Scalars['String'];
   rating: Scalars['Float'];
@@ -2776,6 +2881,7 @@ export enum ReviewOrderByInput {
 export type ReviewUpdateInput = {
   author: InputMaybe<Scalars['String']>;
   clanyiohv48rw01tc3dn6dpdc: InputMaybe<ProductUpdateManyInlineInput>;
+  clioofwpr0fqo01upabvg9oab: InputMaybe<PersonUpdateManyInlineInput>;
   email: InputMaybe<Scalars['String']>;
   rating: InputMaybe<Scalars['Float']>;
   review: InputMaybe<Scalars['String']>;
@@ -4308,6 +4414,13 @@ export type GetAccountByEmailQueryVariables = Exact<{
 
 export type GetAccountByEmailQuery = { __typename?: 'Query', person: { __typename?: 'Person', id: string, email: string, password: string } | null };
 
+export type GetAccountDetailsByEmailQueryVariables = Exact<{
+  email: Scalars['String'];
+}>;
+
+
+export type GetAccountDetailsByEmailQuery = { __typename?: 'Query', person: { __typename?: 'Person', id: string, email: string, name: string | null, products: Array<{ __typename?: 'Product', id: string, slug: string, title: string, name: string, price: number, reviewScore: number, images: Array<{ __typename?: 'Asset', url: string, width: number | null, height: number | null }> }> } | null };
+
 export type GetAllProductsListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4411,6 +4524,56 @@ export function useGetAccountByEmailLazyQuery(baseOptions?: Apollo.LazyQueryHook
 export type GetAccountByEmailQueryHookResult = ReturnType<typeof useGetAccountByEmailQuery>;
 export type GetAccountByEmailLazyQueryHookResult = ReturnType<typeof useGetAccountByEmailLazyQuery>;
 export type GetAccountByEmailQueryResult = Apollo.QueryResult<GetAccountByEmailQuery, GetAccountByEmailQueryVariables>;
+export const GetAccountDetailsByEmailDocument = gql`
+    query getAccountDetailsByEmail($email: String!) {
+  person(where: {email: $email}) {
+    id
+    email
+    name
+    products {
+      id
+      slug
+      title
+      name
+      price
+      reviewScore
+      images(first: 1) {
+        url
+        width
+        height
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAccountDetailsByEmailQuery__
+ *
+ * To run a query within a React component, call `useGetAccountDetailsByEmailQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAccountDetailsByEmailQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAccountDetailsByEmailQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useGetAccountDetailsByEmailQuery(baseOptions: Apollo.QueryHookOptions<GetAccountDetailsByEmailQuery, GetAccountDetailsByEmailQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAccountDetailsByEmailQuery, GetAccountDetailsByEmailQueryVariables>(GetAccountDetailsByEmailDocument, options);
+      }
+export function useGetAccountDetailsByEmailLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAccountDetailsByEmailQuery, GetAccountDetailsByEmailQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAccountDetailsByEmailQuery, GetAccountDetailsByEmailQueryVariables>(GetAccountDetailsByEmailDocument, options);
+        }
+export type GetAccountDetailsByEmailQueryHookResult = ReturnType<typeof useGetAccountDetailsByEmailQuery>;
+export type GetAccountDetailsByEmailLazyQueryHookResult = ReturnType<typeof useGetAccountDetailsByEmailLazyQuery>;
+export type GetAccountDetailsByEmailQueryResult = Apollo.QueryResult<GetAccountDetailsByEmailQuery, GetAccountDetailsByEmailQueryVariables>;
 export const GetAllProductsListDocument = gql`
     query GetAllProductsList {
   products(first: 100) {

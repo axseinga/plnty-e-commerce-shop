@@ -6,9 +6,10 @@ import useAppStateStore from "@/store/app-store";
 
 type ProductListProps = {
   items: ProductListItemT[];
+  variant: "default" | "favourites";
 };
 
-export const ProductList = ({ items }: ProductListProps) => {
+export const ProductList = ({ items, variant = "default" }: ProductListProps) => {
   const { filters } = useAppStateStore();
   const [productListKey, setProductListKey] = React.useState(0.75931);
 
@@ -18,7 +19,7 @@ export const ProductList = ({ items }: ProductListProps) => {
   }, [filters]);
 
   return (
-    <ProductListWrapper key={productListKey}>
+    <ProductListWrapper key={productListKey} variant={variant}>
       {items.map((product) => (
         <ProductThumbnail
           key={product?.slug}

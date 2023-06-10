@@ -9,8 +9,6 @@ const SignupHandler: NextApiHandler = async (req, res) => {
 
   const passwordHash = await bcrypt.hash(password, 12);
 
-  console.log(email, password, passwordHash);
-
   const user = await authorizedApolloClient.mutate<CreateAccountMutation, CreateAccountMutationVariables>({
     mutation: CreateAccountDocument,
     variables: {

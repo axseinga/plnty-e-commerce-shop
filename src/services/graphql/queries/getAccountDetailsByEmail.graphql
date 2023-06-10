@@ -1,0 +1,20 @@
+query getAccountDetailsByEmail($email: String!) {
+  person(where: { email: $email }) {
+    id
+    email
+    name
+    products {
+      id
+      slug
+      title
+      name
+      price
+      reviewScore
+      images(first: 1) {
+        url
+        width
+        height
+      }
+    }
+  }
+}

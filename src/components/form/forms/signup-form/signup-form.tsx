@@ -4,9 +4,9 @@ import { signupFormSchema } from "@/utils/validations/signup-schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormTypes } from "@/types";
 import { useForm } from "react-hook-form";
-import { SignupForm } from "@/styles/pages/signup.styles";
+import { SignupFormWrapper } from "./signup-form.styles";
 
-const SignupPage = () => {
+export const SignupForm = () => {
   const {
     register,
     handleSubmit,
@@ -25,15 +25,10 @@ const SignupPage = () => {
   };
 
   return (
-    <>
-      <Hero heroImage="/assets/contactpage-header.png" />
-      <SignupForm noValidate onSubmit={handleSubmit(onSubmit)}>
+      <SignupFormWrapper noValidate onSubmit={handleSubmit(onSubmit)}>
         <Input name="email" type="text" label="Email:" placeholder="Your email" register={register} errors={errors} />
         <Input name="password" type="text" label="Password:" placeholder="Your password" register={register} errors={errors} />
         <button type="submit">Sign up</button>
-      </SignupForm>
-    </>
+      </SignupFormWrapper>
   );
 };
-
-export default SignupPage;

@@ -30,23 +30,15 @@ export const NewsletterForm = () => {
 
   return (
     <NewsletterFormWrapper noValidate onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        name="email"
-        type="text"
-        label="Never miss a plant sale or event"
-        placeholder="Your email"
-        register={register}
-        errors={errors}
-      />
+      <Input name="email" type="text" label="Never miss a plant sale or event" placeholder="Your email" register={register} errors={errors} />
       <Button type="submit">Sign up now</Button>
       <Modal showModal={showModal} setShowModal={setShowModal}>
         <NewsletterModal>
           <p>Thank you for signing up for our plant shop newsletter!</p>
-          <p>
-            We&apos;re thrilled to have you join our community of fellow plant
-            enthusiasts.
-          </p>
-          <Link href="/plants" onClick={() => setShowModal(false)}><Button variant={ButtonVariantType.dark}>Continue shopping</Button></Link>
+          <p>We&apos;re thrilled to have you join our community of fellow plant enthusiasts.</p>
+          <Link href="/plants" onClick={() => setShowModal(false)}>
+            <Button variant={ButtonVariantType.dark}>Continue shopping</Button>
+          </Link>
         </NewsletterModal>
       </Modal>
     </NewsletterFormWrapper>

@@ -63,6 +63,7 @@ export const ProductThumbnailHeader = styled.div`
 export const ProductThumbnailForm = styled.form`
   display: flex;
   margin-top: 1rem;
+  white-space: nowrap;
 
   & input {
     width: 2.5rem;

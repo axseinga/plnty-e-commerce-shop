@@ -29,7 +29,7 @@ export const authOptions = {
 
         if (!arePasswordEqual) return null;
 
-        return { id: userByEmail.data.person.id, email: userByEmail.data.person.email }
+        return { id: userByEmail.data.person.id, email: userByEmail.data.person.email };
       },
     }),
   ],
