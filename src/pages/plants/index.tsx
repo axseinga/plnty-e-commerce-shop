@@ -39,7 +39,7 @@ const PlantsPage = ({ products }: InferGetStaticPropsType<typeof getStaticProps>
       <Spacer times={2} />
       <PlantsPageMain>
         <ProductFiltering />
-        {productsList && <ProductList items={productsList.products} />}
+        {productsList && <ProductList items={productsList.products} variant="default"/>}
       </PlantsPageMain>
     </>
   );
